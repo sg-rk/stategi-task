@@ -1,0 +1,28 @@
+<div class="login-page">
+    <div class="login-form-container">
+        <h4 class="form-header">Login</h4>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input formControlName="username" type="text" [class.invalid]="submitted && fc.username.errors" class="form-control" aria-describedby="usernameHelp" placeholder="Username">
+                <div class="error-content" *ngIf="submitted && fc.username.errors">
+                    <span *ngIf="fc.username.errors.required" class="error-msg">Username required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input formControlName="password" type="password" [class.invalid]="submitted && fc.username.errors" class="form-control" placeholder="Password">
+                <div class="error-content" *ngIf="submitted && fc.password.errors">
+                    <span *ngIf="fc.password.errors.required" class="error-msg">Password required</span>
+                </div>
+            </div>
+            <div class="btn-signin-container">
+                <button type="submit" class="btn btn-primary btn-signin">Sign In</button>
+            </div>
+            <div class="error-content" *ngIf="error">
+                <span class="error-msg">{{error}}</span>
+            </div>
+            <div class="text-end">
+                <a class="text-muted text-decoration-none" href="javascript:void(0)">Forget Password?</a>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+    "hosting": {
+        "site": "rk-task-strategi",
+        "public": "dist/strategi",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ]
+    }
+}

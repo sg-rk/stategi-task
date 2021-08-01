@@ -1,0 +1,13 @@
+#user-table .user-table-body .user-table-row:hover,
+#user-table .user-table-body .user-table-row:focus {
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 14%) !important;
+}
+
+tr {
+    vertical-align: middle !important;
+}
+
+.fa {
+    font-size: small !important;
+    vertical-align: middle !important;
+}

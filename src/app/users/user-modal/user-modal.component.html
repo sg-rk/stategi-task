@@ -1,0 +1,102 @@
+<!-- Modal -->
+<div class="modal fade show d-block" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-slideout modal-md shadow-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">{{modalType == 1 ? 'Add' : 'Edit'}} Personal Information</h5>
+                <button type="button" class="bg-transparent border-0 close float-end" data-dismiss="modal" aria-label="Close" (click)="closeModalEmit()">
+            <span aria-hidden="true">×</span>
+          </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="userForm">
+                    <div class="form-group mb-3">
+                        <label for="firstName">First name</label>
+                        <input formControlName="firstName" type="text" class="form-control" id="firstName">
+                        <div class="error-content" *ngIf="submitted && fc.firstName.errors">
+                            <span *ngIf="fc.firstName.errors.required" class="error-msg">First Name required</span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="middleName">Middle name</label>
+                        <input formControlName="middleName" type="text" class="form-control" id="middleName">
+                        <div class="error-content" *ngIf="submitted && fc.middleName.errors">
+                            <span *ngIf="fc.middleName.errors.required" class="error-msg">Middle Name required</span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="lastName">Last name</label>
+                        <input formControlName="lastName" type="text" class="form-control" id="lastName">
+                        <div class="error-content" *ngIf="submitted && fc.lastName.errors">
+                            <span *ngIf="fc.lastName.errors.required" class="error-msg">Last Name required</span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="gender">Gender</label>
+                        <select formControlName="gender" class="form-select" id="gender">
+                            <option value="" >Select</option>
+                            <option [ngValue]="g" *ngFor="let g of genders" >{{g}}</option>
+                        </select>
+                        <div class="error-content" *ngIf="submitted && fc.gender.errors">
+                            <span *ngIf="fc.gender.errors.required" class="error-msg">Gender required</span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="emailID">Email ID</label>
+                        <input formControlName="emailID" type="email" class="form-control" id="emailID" placeholder="">
+                        <div class="error-content" *ngIf="submitted && fc.emailID.errors">
+                            <span *ngIf="fc.emailID.errors.required" class="error-msg">EmailID required</span>
+                            <span *ngIf="fc.emailID.errors.email" class="error-msg">Invalid EmailID</span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="mobile">Mobile</label>
+                        <input formControlName="mobile" type="number" class="form-control" id="mobile" placeholder="">
+                        <div class="error-content" *ngIf="submitted && fc.mobile.errors">
+                            <span *ngIf="fc.mobile.errors.required" class="error-msg">Mobile required</span>
+                            <span *ngIf="fc.mobile.errors.pattern" class="error-msg">Invalid Mobile</span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="dob">DOB</label>
+                        <input formControlName="dob" type="date" max="{{today | date:'YYYY-MM-dd'}}" class="form-control" id="dob" placeholder="DD/MMM/YYYY">
+                        <div class="error-content" *ngIf="submitted && fc.dob.errors">
+                            <span *ngIf="fc.dob.errors.required" class="error-msg">Date of birth required</span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="adderss">Address</label>
+                        <textarea formControlName="address" class="form-control" id="adderss" rows="3"></textarea>
+                        <div class="error-content" *ngIf="submitted && fc.address.errors">
+                            <span *ngIf="fc.address.errors.required" class="error-msg">Address required</span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="cob">Country of birth</label>
+                        <select formControlName="cob" class="form-select" id="cob">
+                            <option value="" >Select</option>
+                            <option [ngValue]="c" *ngFor="let c of countries" >{{c}}</option>
+                        </select>
+                        <div class="error-content" *ngIf="submitted && fc.cob.errors">
+                            <span *ngIf="fc.cob.errors.required" class="error-msg">Country of birth required</span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3 form-check">
+                        <input formControlName="status" type="checkbox" class="form-check-input" id="status">
+                        <label class="form-check-label" for="status">Active</label>
+                        <div class="error-content" *ngIf="submitted && fc.status.errors">
+                            <span *ngIf="fc.status.errors.required" class="error-msg">Should be active</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-end">
+                <button type="button" class="bg-white border-1 btn btn-secondary text-dark" data-dismiss="modal" (click)="closeModalEmit()">Cancel</button>
+                <button type="button" (click)="onSubmit()" class="btn btn-primary">Save</button>
+                <div class="error-content" *ngIf="error">
+                    <span class="error-msg">{{error}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="">Personal Information</a>
+        <div class="btn-add-container">
+            <button class="btn btn-primary btn-add px-4" data-toggle="modal" data-target="#userModal" (click)="openModal(1)">Add</button>
+        </div>
+    </div>
+</nav>
+<div class="mx-5 mt-3">
+    <table id="user-table" class="table table bg-white">
+        <thead style="border-bottom-width: 3px !important;">
+            <tr class="text-primary">
+                <th scope="col"></th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col">EmailID</th>
+                <th scope="col">Mobile Number</th>
+                <th scope="col">Active Status</th>
+            </tr>
+        </thead>
+        <tbody class="user-table-body">
+            <tr *ngFor="let u of users" class="user-table-row">
+                <td scope="row"><button class="btn btn-sm btn-white"><i class="fa fa-pencil" (click)="openModal(2, u)"></i></button></td>
+                <td class="text-theme-primary" style="font-weight: 700 !important;">{{u.firstName | titlecase }}</td>
+                <td>{{u.lastName | titlecase}}</td>
+                <td>{{u.gender}}</td>
+                <td>{{u.emailID}}</td>
+                <td>+91 {{u.mobile}}</td>
+                <td style="font-weight: 500 !important;">
+                    <span *ngIf="u.status" class="text-success">
+                        <i class="fa fa-circle mx-2"></i>
+                        Active
+                    </span>
+                    <span *ngIf="!u.status" class="text-danger">Inactive</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<app-user-modal *ngIf="showModal" [modalType]="modalType" [currentUser]="currentUser" (closeModal)="closeModal()"></app-user-modal>

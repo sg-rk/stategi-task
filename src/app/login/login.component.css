@@ -1,0 +1,44 @@
+.login-page {
+    height: 100vh !important;
+    background: linear-gradient(87deg, var(--primary), transparent), linear-gradient(354deg, var(--secondary), #fff);
+}
+
+.login-form-container {
+    background: white !important;
+    width: 100% !important;
+    max-width: 400px !important;
+    position: absolute;
+    top: calc(50% - 200px) !important;
+    left: calc(50% - 200px) !important;
+    padding: 2em !important;
+}
+
+@media screen and (max-width: 400px) {
+    .login-form-container {
+        left: unset !important;
+    }
+}
+
+.form-header {
+    text-align: center !important;
+    font-weight: 800 !important;
+    font-size: xx-large !important;
+}
+
+.btn-signin-container {
+    padding: 1rem 0rem !important;
+}
+
+.btn-signin {
+    width: 100% !important;
+    height: 55px !important;
+}
+
+input {
+    height: 50px !important;
+    margin: 1rem auto 0.3rem auto !important;
+}
+
+div {
+    border-radius: 7px !important;
+}

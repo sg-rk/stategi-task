@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+
+.custom-colors {
+    --primary: #f275a4;
+    --secondary: #fdca88;
+}
+
+.bg-theme-primary {
+    background: var(--primary) !important;
+}
+
+.bg-theme-secondary {
+    background: var(--secondary) !important;
+}
+
+.btn-theme-primary {
+    color: #fff !important;
+    background: var(--primary) !important;
+}
+
+.btn-theme-secondary {
+    color: #fff !important;
+    background: var(--secondary) !important;
+}
+
+.text-theme-primary {
+    color: var(--primary) !important;
+}
+
+.text-theme-secondary {
+    color: var(--secondary) !important;
+}
+
+.btn {
+    transition: all 0.2s !important;
+}
+
+.btn-primary:hover {
+    background: #0b5ed796 !important;
+}
+
+.invalid {
+    border-color: red !important;
+}
+
+.error-content {
+    margin-bottom: 1rem !important;
+}
+
+.error-content .error-msg {
+    color: red !important;
+}
+
+button,
+input {
+    border-radius: 8px !important;
+}
+
+.table> :not(:last-child)> :last-child>* {
+    border-bottom-color: inherit !important;
+}
