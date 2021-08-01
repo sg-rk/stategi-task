@@ -1,26 +1,41 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container-fluid">
-        <a class="navbar-brand" routerLink="">Personal Information</a>
-        <div class="btn-add-container">
-            <button class="btn btn-primary btn-add px-4" data-toggle="modal" data-target="#userModal" (click)="openModal(1)">Add</button>
+<div class="d-flex">
+    <div class="logo d-flex">
+        <div>
+            <span class="bg-theme-primary"></span>
+            <span class="bg-theme-primary-lite"></span>
+        </div>
+        <div>
+            <span class="bg-theme-secondary-lite"></span>
+            <span class="bg-theme-secondary"></span>
         </div>
     </div>
-</nav>
-<div class="mx-5 mt-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white flex-fill">
+        <div class="container-fluid">
+            <div>
+                <a class="navbar-brand" style="font-weight: 600;" routerLink="">PERSONAL Information</a>
+            </div>
+            <div class="btn-add-container">
+                <button class="btn btn-primary px-4 mx-2" data-toggle="modal" data-target="#userModal" (click)="openModal(1)">Add</button>
+                <button class="btn btn-outline-danger px-2 mx-2" (click)="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="mx-5 mt-3 table-responsive">
     <table id="user-table" class="table table bg-white">
         <thead style="border-bottom-width: 3px !important;">
-            <tr class="text-primary">
+            <tr class="text-primary d-grid d-sm-table-row">
                 <th scope="col"></th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Gender</th>
-                <th scope="col">EmailID</th>
-                <th scope="col">Mobile Number</th>
+                <th scope="col">Email ID</th>
+                <th scope="col">Mobile</th>
                 <th scope="col">Active Status</th>
             </tr>
         </thead>
         <tbody class="user-table-body">
-            <tr *ngFor="let u of users" class="user-table-row">
+            <tr *ngFor="let u of users" class="user-table-row d-grid d-sm-table-row">
                 <td scope="row"><button class="btn btn-sm btn-white"><i class="fa fa-pencil" (click)="openModal(2, u)"></i></button></td>
                 <td class="text-theme-primary" style="font-weight: 700 !important;">{{u.firstName | titlecase }}</td>
                 <td>{{u.lastName | titlecase}}</td>

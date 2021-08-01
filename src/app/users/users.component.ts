@@ -44,4 +44,8 @@ export class UsersComponent implements OnInit {
     this.showModal = true;
   }
 
+  logout(){
+    localStorage.setItem('user_logged', 'no');
+    location.reload();
+  }
 }

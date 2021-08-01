@@ -37,7 +37,7 @@ export class UserModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.openModal()
+    this.openModal();
   }
 
   buildForm(){
@@ -70,9 +70,6 @@ export class UserModalComponent implements OnInit {
         if(k != '_id')
         this.userForm.controls[k].setValue(data[k]); 
       }
-    }
-    else{
-      this.currentUser = null;
     }
   }
 

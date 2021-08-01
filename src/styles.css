@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 .custom-colors {
-    --primary: #f275a4;
-    --secondary: #fdca88;
+    --primary: #f38dae;
+    --primary-lite: #f9dbe5;
+    --secondary: #fdc98b;
+    --secondary-lite: #f7e2c1;
 }
 
 .bg-theme-primary {
@@ -11,6 +13,14 @@
 
 .bg-theme-secondary {
     background: var(--secondary) !important;
+}
+
+.bg-theme-primary-lite {
+    background: var(--primary-lite) !important;
+}
+
+.bg-theme-secondary-lite {
+    background: var(--secondary-lite) !important;
 }
 
 .btn-theme-primary {
